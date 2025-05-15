@@ -6,9 +6,9 @@ nav_order: 2
 
 # Digital Ocean API Token
 
-## How to set the API token when working with digital ocean
+How to set the API token when working with digital ocean
 
-### Setting terraform variable for Digital Ocean API Key
+Setting terraform variable for Digital Ocean API Key
 
 For ease of use you can simply utilize an environment variables for working with DO.
 
