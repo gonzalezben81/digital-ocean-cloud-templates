@@ -1,7 +1,12 @@
-# digital-ocean-cloud-templates
+---
+layout: default
+title: Digital Ocean API token
+nav_order: 2
+---
 
-This repo contains terraform templates for working with Digital Ocean. 
+# Digital Ocean API Token
 
+## How to set the API token when working with digital ocean
 
 ### Setting terraform variable for Digital Ocean API Key
 
@@ -19,12 +24,3 @@ echo $TF_VAR_dok_token
 ```
 
 Note: If you are using a Linux OS you can set this in your .bashrc for use in subsequent sessions.
-
-
-### Droplets
-
-### VPC
-
-### Load Balancer
-
-### Container Registry
