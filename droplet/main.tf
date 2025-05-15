@@ -22,7 +22,7 @@ resource "digitalocean_droplet" "example" {
   name   = "example-droplet"
   region = "nyc3" # Replace with your preferred region
   size   = "s-1vcpu-1gb" # Choose a size suitable for your application
-  image  = "ubuntu-24-04-x64" # Ensure the image ID is available on DigitalOcean
+  image  = "ubuntu-22-04-x64" # Ensure the image ID is available on DigitalOcean
 
   ssh_keys = [data.digitalocean_ssh_key.ssh.id]
 
@@ -40,18 +40,21 @@ users:
 packages:
   - nginx
   - r-base
+  - gdebi-core
   - rstudio-server
+  - net-tools
+  - git
 
 runcmd:
+  - apt-get update
   - systemctl enable nginx
   - systemctl start nginx
-  - apt-get update
   - apt-get install -y gdebi-core
-  - wget https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2024.12.0-467-amd64.deb
-  - gdebi --n rstudio-server-2024.12.0-467-amd64.deb
+  - wget https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2025.05.0-496-amd64.deb
+  - gdebi --n rstudio-server-2025.05.0-496-amd64.deb
   - sudo su - -c "R -e \"install.packages('shiny', repos='http://cran.rstudio.com/')\""
-  - wget https://download3.rstudio.org/ubuntu-18.04/x86_64/shiny-server-1.5.22.1017-amd64.deb
-  - gdebi --n shiny-server-1.5.22.1017-amd64.deb
+  - wget https://download3.rstudio.org/ubuntu-20.04/x86_64/shiny-server-1.5.23.1030-amd64.deb
+  - gdebi --n shiny-server-1.5.23.1030-amd64.deb
   - apt install net-tools
   - apt-get install -y git
 
