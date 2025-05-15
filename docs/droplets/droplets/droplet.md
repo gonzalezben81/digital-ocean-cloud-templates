@@ -9,7 +9,7 @@ layout: default
 
 Basic Drople Terraform template:
 
-```json
+```hcl
 variable "do_token" {
   type = string
   description = "DigitalOcean API token"
@@ -17,7 +17,7 @@ variable "do_token" {
 ```
 
 
-```json
+```hcl
 terraform {
   required_providers {
     digitalocean = {
